@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.username);
 
         b1 = findViewById(R.id.b1);
-
+        b2=findViewById(R.id.b2);
         mAuth = FirebaseAuth.getInstance();
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        b2.setOnClickListener(new View.OnClickListener() {
+    b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),SignIn.class);
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void signUp() {
@@ -52,5 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         // StrPhone=EtPhone.getText().toString().trim();
         mAuth.createUserWithEmailAndPassword(EtUsername, EtPassword);
-    }
+
+        Intent i=new Intent(getApplicationContext(),SignIn.class);
+        startActivity(i);    }
 }

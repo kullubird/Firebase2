@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context="android.kevin.fightautism.HomeScreen">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        android:id="@+id/logout_btn"/>
+
 </android.support.constraint.ConstraintLayout>

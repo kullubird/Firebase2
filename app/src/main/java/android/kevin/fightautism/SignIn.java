@@ -27,30 +27,46 @@ public class SignIn extends AppCompatActivity {
         etPass = findViewById(R.id.password);
         etUsername = findViewById(R.id.username);
 
-        b1 = findViewById(R.id.b1);
+        b1 = findViewById(R.id.bb1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
+                String EtUsername = etUsername.getText().toString().trim();
+                String EtPassword = etPass.getText().toString().trim();
+
+                mAuth.signInWithEmailAndPassword(EtUsername, EtPassword);
+                Toast.makeText(getApplicationContext(),"Now click proceed",Toast.LENGTH_SHORT).show();
+
+                /*FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser == null) {
+                    Toast.makeText(getApplicationContext(),"Sign in Failed",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Sign in Success",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getApplicationContext(),HomeScreen.class);
+                    startActivity(i);
+                }
+                */
+            }
+        });
+
+        b2=findViewById(R.id.bb2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser == null) {
+                    Toast.makeText(getApplicationContext(),"Sign in Failed",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Sign in Success",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getApplicationContext(),HomeScreen.class);
+                    startActivity(i);
+                }
             }
         });
 
 
     }
 
-    private void signIn() {
-        String EtUsername = etUsername.getText().toString().trim();
-        String EtPassword = etPass.getText().toString().trim();
-
-        mAuth.signInWithEmailAndPassword(EtUsername, EtPassword);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            Toast.makeText(getApplicationContext(),"Sign in Failed",Toast.LENGTH_SHORT);
-        }
-        else{
-            Toast.makeText(getApplicationContext(),"Sign in Success",Toast.LENGTH_SHORT);
-            Intent i=new Intent(getApplicationContext(),HomeScreen.class);
-            startActivity(i);
-        }
-    }
 }

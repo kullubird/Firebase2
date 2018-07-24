@@ -67,9 +67,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign In"
-                android:id="@+id/b1"
+                android:id="@+id/bb1"
                 />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Proceed"
+                android:id="@+id/bb2"
+                />
         </LinearLayout>
 
     </LinearLayout>
