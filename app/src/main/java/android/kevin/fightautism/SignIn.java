@@ -62,6 +62,7 @@ public class SignIn extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Sign in Success",Toast.LENGTH_SHORT).show();
                     Intent i=new Intent(getApplicationContext(),HomeScreen.class);
                     startActivity(i);
+                    finish();
                 }
             }
         });

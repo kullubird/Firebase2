@@ -24,6 +24,7 @@ public class HomeScreen extends AppCompatActivity {
 
                 Intent i=new Intent(getApplicationContext(),SignIn.class);
                 startActivity(i);
+                finish();
             }
         });
     }
